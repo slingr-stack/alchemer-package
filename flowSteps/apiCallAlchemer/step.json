@@ -1,0 +1,424 @@
+{
+  "label": "API call to alchemer",
+  "name": "apiCallAlchemer",
+  "category": "integrations",
+  "description": "This flow step will send generic request to alchemer",
+  "inputs": [
+    {
+      "label": "Url",
+      "name": "url",
+      "description": "The method and path to which this endpoint is to send requests in a generic way.",
+      "type": "urlParams",
+      "required": "true",
+      "options": {
+        "type": "dropDown",
+        "possibleValues": [
+            {
+              "label": "GET /account"
+            },
+            {
+              "label": "GET /accountteams"
+            },
+            {
+              "label": "GET /accountteams/{id}"
+            },
+            {
+              "label": "GET /accountuser"
+            },
+            {
+              "label": "GET /accountuser/{id}"
+            },
+            {
+              "label": "GET /domain"
+            },
+            {
+              "label": "GET /domain/{id}"
+            },
+            {
+              "label": "GET /sso"
+            },
+            {
+              "label": "GET /sso/{id}"
+            },
+            {
+              "label": "GET /surveytheme"
+            },
+            {
+              "label": "GET /surveytheme/{id}"
+            },
+            {
+              "label": "GET /contactlist"
+            },
+            {
+              "label": "GET /contactlist/{id}"
+            },
+            {
+              "label": "GET /contactlist/{contactListId}/contactlistcontact"
+            },
+            {
+              "label": "GET /contactlist/{contactListId}/contactlistcontact/{id}"
+            },
+            {
+              "label": "GET /contactcustomfield"
+            },
+            {
+              "label": "GET /contactcustomfield/{id}"
+            },
+            {
+              "label": "GET /survey"
+            },
+            {
+              "label": "GET /survey/{id}"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveypage"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveypage/{id}"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveyquestion"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveyquestion/{id}"
+            },
+            {
+              "label": "GET /survey/{surveyOption}/surveyquestion/{surveyQuestionId}/surveyoption"
+            },
+            {
+              "label": "GET /survey/{surveyOption}/surveyquestion/{surveyQuestionId}/surveyoption/{id}"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveycampaign"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveycampaign/{id}"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveycampaign/{surveyCampaignId}/surveycontact"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveycampaign/{surveyCampaignId}/surveycontact/{id}"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveycampaign/{surveyCampaignId}/emailmessage"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveycampaign/{surveyCampaignId}/emailmessage/{id}"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveyresponse"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveyresponse/{id}"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveystatistic"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveystatistic/{id}"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveyreport"
+            },
+            {
+              "label": "GET /survey/{surveyId}/surveyreport/{id}"
+            },
+            {
+              "label": "GET /survey/{surveyId}/quotas"
+            },
+            {
+              "label": "GET /survey/{surveyId}/quotas/{id}"
+            },
+            {
+              "label": "PUT /accountteams"
+            },
+            {
+              "label": "PUT /accountuser"
+            },
+            {
+              "label": "PUT /domain"
+            },
+            {
+              "label": "PUT /sso"
+            },
+            {
+              "label": "PUT /surveytheme"
+            },
+            {
+              "label": "PUT /contactlist"
+            },
+            {
+              "label": "PUT /contactlist/{contactListId}/contactlistcontact"
+            },
+            {
+              "label": "PUT /contactcustomfield"
+            },
+            {
+              "label": "PUT /survey"
+            },
+            {
+              "label": "PUT /survey/{surveyId}/surveypage"
+            },
+            {
+              "label": "PUT /survey/{surveyId}/surveyquestion"
+            },
+            {
+              "label": "PUT /survey/{surveyOption}/surveyquestion/{surveyQuestionId}/surveyoption"
+            },
+            {
+              "label": "PUT /survey/{surveyId}/surveycampaign"
+            },
+            {
+              "label": "PUT /survey/{surveyId}/surveycampaign/{surveyCampaignId}/surveycontact"
+            },
+            {
+              "label": "PUT /survey/{surveyId}/surveycampaign/{surveyCampaignId}/emailmessage"
+            },
+            {
+              "label": "PUT /survey/{surveyId}/surveyresponse"
+            },
+            {
+              "label": "PUT /survey/{surveyId}/surveystatistic"
+            },
+            {
+              "label": "PUT /survey/{surveyId}/surveyreport"
+            },
+            {
+              "label": "PUT /survey/{surveyId}/quotas"
+            },
+            {
+              "label": "POST /accountteams/{id}"
+            },
+            {
+              "label": "POST /accountuser/{id}"
+            },
+            {
+              "label": "POST /domain/{id}"
+            },
+            {
+              "label": "POST /sso/{id}"
+            },
+            {
+              "label": "POST /surveytheme/{id}"
+            },
+            {
+              "label": "POST /contactlist/{id}"
+            },
+            {
+              "label": "POST /contactlist/{contactListId}/contactlistcontact/{id}"
+            },
+            {
+              "label": "POST /contactcustomfield/{id}"
+            },
+            {
+              "label": "POST /survey/{id}"
+            },
+            {
+              "label": "POST /survey/{surveyId}/surveypage/{id}"
+            },
+            {
+              "label": "POST /survey/{surveyId}/surveyquestion/{id}"
+            },
+            {
+              "label": "POST /survey/{surveyOption}/surveyquestion/{surveyQuestionId}/surveyoption/{id}"
+            },
+            {
+              "label": "POST /survey/{surveyId}/surveycampaign/{id}"
+            },
+            {
+              "label": "POST /survey/{surveyId}/surveycampaign/{surveyCampaignId}/surveycontact/{id}"
+            },
+            {
+              "label": "POST /survey/{surveyId}/surveycampaign/{surveyCampaignId}/emailmessage/{id}"
+            },
+            {
+              "label": "POST /survey/{surveyId}/surveyresponse/{id}"
+            },
+            {
+              "label": "POST /survey/{surveyId}/surveystatistic/{id}"
+            },
+            {
+              "label": "POST /survey/{surveyId}/surveyreport/{id}"
+            },
+            {
+              "label": "POST /survey/{surveyId}/quotas/{id}"
+            },
+            {
+              "label": "DELETE /accountteams/{id}"
+            },
+            {
+              "label": "DELETE /accountuser/{id}"
+            },
+            {
+              "label": "DELETE /domain/{id}"
+            },
+            {
+              "label": "DELETE /sso/{id}"
+            },
+            {
+              "label": "DELETE /surveytheme/{id}"
+            },
+            {
+              "label": "DELETE /contactlist/{id}"
+            },
+            {
+              "label": "DELETE /contactlist/{contactListId}/contactlistcontact/{id}"
+            },
+            {
+              "label": "DELETE /contactcustomfield/{id}"
+            },
+            {
+              "label": "DELETE /survey/{id}"
+            },
+            {
+              "label": "DELETE /survey/{surveyId}/surveypage/{id}"
+            },
+            {
+              "label": "DELETE /survey/{surveyId}/surveyquestion/{id}"
+            },
+            {
+              "label": "DELETE /survey/{surveyOption}/surveyquestion/{surveyQuestionId}/surveyoption/{id}"
+            },
+            {
+              "label": "DELETE /survey/{surveyId}/surveycampaign/{id}"
+            },
+            {
+              "label": "DELETE /survey/{surveyId}/surveycampaign/{surveyCampaignId}/surveycontact/{id}"
+            },
+            {
+              "label": "DELETE /survey/{surveyId}/surveycampaign/{surveyCampaignId}/emailmessage/{id}"
+            },
+            {
+              "label": "DELETE /survey/{surveyId}/surveyresponse/{id}"
+            },
+            {
+              "label": "DELETE /survey/{surveyId}/surveystatistic/{id}"
+            },
+            {
+              "label": "DELETE /survey/{surveyId}/surveyreport/{id}"
+            },
+            {
+              "label": "DELETE /survey/{surveyId}/quotas/{id}"
+            }
+        ]
+      }
+    },
+    {
+      "label": "Headers",
+      "name": "headers",
+      "description": "Let the client and the server pass additional information with the HTTP request in a key value format. (e.g. key=ABC123)",
+      "type": "keyValue"
+    },
+    {
+      "label": "Query Params",
+      "name": "params",
+      "description": "Parameters attached to the end of a url in a key value format. (e.g. key=ABC123)",
+      "type": "keyValue"
+    },
+    {
+      "label": "Body",
+      "name": "body",
+      "type": "json",
+      "description": "Content to be sent to the server.",
+      "options": {
+        "allowContextSelector": "true"
+      }
+    },
+    {
+      "label": "Override Settings",
+      "name": "overrideSettings",
+      "type": "boolean",
+      "description": "If true, allows adding configurations",
+      "defaultValue": false,
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "Follow Redirects",
+      "name": "followRedirects",
+      "type": "boolean",
+      "description": "Follow the redirects when a HTTP request is executed",
+      "visibility": "config.overrideSettings",
+      "defaultValue": false,
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "Download",
+      "name": "download",
+      "type": "boolean",
+      "description": "Indicates that the resource has to be downloaded into a file instead of returning it in the response.",
+      "visibility": "config.overrideSettings && config.events != \"fileDownloaded\"",
+      "defaultValue": false,
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "File Name",
+      "name": "fileName",
+      "description": "If provided, the file will be stored with this name. If empty the file name will be calculated from the URL.",
+      "visibility": "(config.overrideSettings && config.download) || config.events === \"fileDownloaded\"",
+      "type": "text",
+      "options": {
+        "allowContextSelector": "true"
+      }
+    },
+    {
+      "label": "Full Response",
+      "name": "fullResponse",
+      "type": "boolean",
+      "description": "Include extended information about response",
+      "visibility": "config.overrideSettings",
+      "defaultValue": false,
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "Connection timeout",
+      "name": "connectionTimeout",
+      "description": "Connect timeout interval, in milliseconds (0 = infinity). Default value: 5000 ms (5 sec)",
+      "visibility": "config.overrideSettings",
+      "type": "text",
+      "defaultValue": "5000",
+      "typeOptions": {
+        "validation": {
+          "function": "!config.connectionTimeout || utils.isPlaceholder(config.connectionTimeout) || utils.getInteger(config.connectionTimeout) >= 0",
+          "message": "The time must be a valid placeholder or a positive integer greater than or equal to 0. "
+        }
+      },
+      "options": {
+        "allowContextSelector": "false"
+      }
+    },
+    {
+      "label": "Read timeout",
+      "name": "readTimeout",
+      "description": "Read timeout interval, in milliseconds (0 = infinity). Default value: 60000 ms (60 sec)",
+      "visibility": "config.overrideSettings",
+      "type": "text",
+      "defaultValue": "60000",
+      "typeOptions": {
+        "validation": {
+          "function": "!config.readTimeout || utils.isPlaceholder(config.readTimeout) || utils.getInteger(config.readTimeout) >= 0",
+          "message": "The time must be a valid placeholder or a positive integer greater than or equal to 0. "
+        }
+      },
+      "options": {
+        "allowContextSelector": "false"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "label": "Response",
+      "name": "response",
+      "type": "object",
+      "description": "The response to external URL"
+    }
+  ]
+}
