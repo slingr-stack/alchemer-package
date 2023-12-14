@@ -269,7 +269,7 @@ function setRequestHeaders(options) {
 
 function setAuthorization(options) {
     sys.logs.debug('[alchemer] setting authorization');
-    options.url += "api_token" + config.get("apiToken") + "&api_token_secret" + config.get("apiTokenSecret");
+    options.url += "?api_token" + config.get("apiToken") + "&api_token_secret" + config.get("apiTokenSecret");
     return options;
 }
 
