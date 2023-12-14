@@ -70,11 +70,11 @@
         {
             "type": "script",
             "namespace": "api",
-            "path": "/scripts/functions.js"
+            "path": "/scripts/api.js"
         },
         {
             "type": "flowStep",
-            "namespace": "steps",
+            "namespace": "apiCallAlchemer",
             "path": "/flowSteps/apiCallAlchemer"
         }
     ]

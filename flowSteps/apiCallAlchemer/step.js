@@ -32,85 +32,73 @@ step.apiCallAlchemer = function (inputs) {
 		fullResponse: inputs.fullResponse || false,
 		connectionTimeout: inputs.connectionTimeout || 5000,
 		readTimeout: inputs.readTimeout || 60000,
-		url: {
-			urlValue: inputs.url.urlValue ? inputs.url.urlValue.split(" ")[1] : "",
-			paramsValue: inputs.url.paramsValue || []
+		path: inputs.path || {
+			urlValue: "",
+			paramsValue: []
 		},
-		method: inputs.url.urlValue ? inputs.url.urlValue.split(" ")[0] : ""
+		method: inputs.method || "get"
 	};
 
-	inputsLogic.headers = isObject(inputsLogic.headers) ? inputsLogic.headers : stringToObject(inputsLogic.headers);
-	inputsLogic.params = isObject(inputsLogic.params) ? inputsLogic.params : stringToObject(inputsLogic.params);
-	inputsLogic.body = isObject(inputsLogic.body) ? inputsLogic.body : JSON.parse(inputsLogic.body);
-
-
 	var options = {
-		url: config.get("ALCHEMER_API_BASE_URL") + parse(inputsLogic.url.urlValue, inputsLogic.url.paramsValue),
-		params: inputsLogic.params,
-		headers: inputsLogic.headers,
-		body: inputsLogic.body,
-		followRedirects : inputsLogic.followRedirects,
-		forceDownload :inputsLogic.download,
-		downloadSync : false,
+		path: parse(inputsLogic.path.urlValue, inputsLogic.path.paramsValue),
+		params: isObject(inputsLogic.params) ? inputsLogic.params : stringToObject(inputsLogic.params),
+		headers: isObject(inputsLogic.headers) ? inputsLogic.headers : stringToObject(inputsLogic.headers),
+		body: isObject(inputsLogic.body) ? inputsLogic.body : JSON.parse(inputsLogic.body),
+		followRedirects: inputsLogic.followRedirects,
+		forceDownload: inputsLogic.download,
+		downloadSync: false,
 		fileName: inputsLogic.fileName,
-		fullResponse : inputsLogic.fullResponse,
+		fullResponse: inputsLogic.fullResponse,
 		connectionTimeout: inputsLogic.connectionTimeout,
 		readTimeout: inputsLogic.readTimeout
-	}
+	};
+
+	options= setApiUri(options)
+	options= setRequestHeaders(options);
+	options= setAuthorization(options);
 
 	switch (inputsLogic.method.toLowerCase()) {
 		case 'get':
 			return httpService.get(options);
 		case 'post':
 			return httpService.post(options);
-		case 'delete':
-			return httpService.delete(options);
 		case 'put':
 			return httpService.put(options);
-		case 'connect':
-			return httpService.connect(options);
+		case 'patch':
+			return httpService.patch(options);
+		case 'delete':
+			return httpService.delete(options);
 		case 'head':
 			return httpService.head(options);
 		case 'options':
 			return httpService.options(options);
-		case 'patch':
-			return httpService.patch(options);
-		case 'trace':
-			return httpService.trace(options);
 	}
-
-	//REPLACE THIS WITH YOUR OWN CODE
 
 	return null;
 };
 
-var parse = function (url, pathVariables){
-
+function parse (url, pathVariables){
 	var regex = /{([^}]*)}/g;
-
 	if (!url.match(regex)){
 		return url;
 	}
-
 	if(!pathVariables){
 		sys.logs.error('No path variables have been received and the url contains curly brackets\'{}\'');
 		throw new Error('Error please contact support.');
 	}
-
 	url = url.replace(regex, function(m, i) {
 		return pathVariables[i] ? pathVariables[i] : m;
 	})
-
 	return url;
 }
 
-var isObject = function (obj) {
+function isObject (obj) {
 	return !!obj && stringType(obj) === '[object Object]'
-};
+}
 
 var stringType = Function.prototype.call.bind(Object.prototype.toString);
 
-var stringToObject = function (obj) {
+function stringToObject (obj) {
 	if (!!obj){
 		var keyValue = obj.toString().split(',');
 		var parseObj = {};
@@ -120,4 +108,44 @@ var stringToObject = function (obj) {
 		return parseObj;
 	}
 	return null;
-};
+}
+
+
+function setApiUri(options) {
+	var API_URL = config.get("subdomainLabel");
+	var url = options.path || "";
+	options.url = API_URL + url;
+	sys.logs.debug('[chargify] Set url: ' + options.path + "->" + options.url);
+	return options;
+}
+function setAuthorization(options) {
+	var authorization = options.authorization || {};
+	sys.logs.debug('[chargify] setting authorization');
+
+	authorization = mergeJSON(authorization, {
+		type: "basic",
+		username: config.get("apiKey"),
+		password: "x"
+	});
+	options.authorization = authorization;
+	return options;
+}
+
+function setRequestHeaders(options) {
+	var headers = options.headers || {};
+	headers = mergeJSON(headers, {"Content-Type": "application/json"});
+	options.headers = headers;
+	return options;
+}
+
+function mergeJSON (json1, json2) {
+	var result = {};
+	var key;
+	for (key in json1) {
+		if(json1.hasOwnProperty(key)) result[key] = json1[key];
+	}
+	for (key in json2) {
+		if(json2.hasOwnProperty(key)) result[key] = json2[key];
+	}
+	return result;
+}
