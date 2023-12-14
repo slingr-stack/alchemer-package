@@ -45,12 +45,12 @@ The Javascript API of the alchemer package has three pieces:
 ## HTTP requests
 You can make `GET`,`PUT`,`POST`,`DELETE` requests to the [alchemer API](API_URL_HERE) like this:
 ```javascript
-var response = pkg.alchemer.functions.get('/survey/:surveyId/surveycampaign/:surveyCampaignId/emailmessage')
-var response = pkg.alchemer.functions.put('/sso', body)
-var response = pkg.alchemer.functions.put('/sso')
-var response = pkg.alchemer.functions.post('/survey/:surveyId/surveystatistic/:id', body)
-var response = pkg.alchemer.functions.post('/survey/:surveyId/surveystatistic/:id')
-var response = pkg.alchemer.functions.delete('/domain/:id')
+var response = pkg.alchemer.api.get('/survey/:surveyId/surveycampaign/:surveyCampaignId/emailmessage')
+var response = pkg.alchemer.api.put('/sso', body)
+var response = pkg.alchemer.api.put('/sso')
+var response = pkg.alchemer.api.post('/survey/:surveyId/surveystatistic/:id', body)
+var response = pkg.alchemer.api.post('/survey/:surveyId/surveystatistic/:id')
+var response = pkg.alchemer.api.delete('/domain/:id')
 ```
 
 Please take a look at the documentation of the [HTTP service](https://github.com/slingr-stack/http-service)
