@@ -56,7 +56,7 @@
             "name": "ALCHEMER_API_BASE_URL",
             "label": "Alchemer Api Url",
             "type": "label",
-            "value": "https://api.example.com/v1/"
+            "value": "https://api.alchemer.com/v4/"
         }
     ],
     "events": [

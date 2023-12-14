@@ -241,8 +241,8 @@ let stringType = Function.prototype.call.bind(Object.prototype.toString)
 
 let Alchemer = function (options) {
     options = options || {};
-    options= setApiUri(options);
-    options= setRequestHeaders(options);
+    options = setApiUri(options);
+    options = setRequestHeaders(options);
     options = setAuthorization(options);
     return options;
 }
@@ -252,12 +252,13 @@ let Alchemer = function (options) {
  ****************************************************/
 
 function setApiUri(options) {
-    let API_URL = config.get("subdomainLabel");
-    let url = options.path || "";
-    options.url = API_URL + url;
-    sys.logs.debug('[alchemer] Set url: ' + options.path + "->" + options.url);
+    var API_URL = config.get("ALCHEMER_API_BASE_URL");
+    var path = options.path || "";
+    options.url = API_URL + path;
+    sys.logs.debug('[quickchart] Set url: ' + options.path + "->" + options.url);
     return options;
 }
+
 
 function setRequestHeaders(options) {
     let headers = options.headers || {};
@@ -267,15 +268,8 @@ function setRequestHeaders(options) {
 }
 
 function setAuthorization(options) {
-    let authorization = options.authorization || {};
     sys.logs.debug('[alchemer] setting authorization');
-
-    authorization = mergeJSON(authorization, {
-        type: "basic",
-        username: config.get("apiKey"),
-        password: "x"
-    });
-    options.authorization = authorization;
+    options.url += "api_token" + config.get("apiToken") + "&api_token_secret" + config.get("apiTokenSecret");
     return options;
 }
 
