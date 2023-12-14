@@ -1,0 +1,75 @@
+{
+    "name": "alchemer",
+    "label": "Alchemer Package",
+    "dependencies": [
+        {
+            "type": "service",
+            "name": "http",
+            "version": "v1.2.6",
+            "instanceId": "shared"
+        }
+    ],
+    "configuration": [
+        {
+            "label": "API Token",
+            "name": "apiToken",
+            "type": "text",
+            "required": true
+        },
+        {
+            "label": "API Token Secret",
+            "name": "apiTokenSecret",
+            "type": "text",
+            "required": true
+        },
+        {
+            "name": "ALCHEMER_API_BASE_URL",
+            "label": "Alchemer API by Location",
+            "type": "buttonsGroup",
+            "required": true,
+            "defaultValue": "us",
+            "typeOptions": {
+                "allowCustom": true,
+                "possibleValues": [
+                    {
+                        "label": "US",
+                        "name": "https://api.alchemer.com/v5"
+                    },
+                    {
+                        "label": "CA",
+                        "name": "https://api.alchemer-ca.com/v5"
+                    },
+                    {
+                        "label": "EU",
+                        "name": "https://api.alchemer.eu/v5"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "webhook",
+            "label": "Webhook URL",
+            "type": "label",
+            "value": "@config.WEBHOOK_URL"
+        }
+    ],
+    "events": [
+        {
+            "label": "Webhook",
+            "name": "webhook",
+            "description": "Happens when a Alchemer webhook hits the endpoint URL."
+        }
+    ],
+    "metadata": [
+        {
+            "type": "script",
+            "namespace": "api",
+            "path": "/scripts/api.js"
+        },
+        {
+            "type": "flowStep",
+            "namespace": "apiCallAlchemer",
+            "path": "/flowSteps/apiCallAlchemer"
+        }
+    ]
+}
