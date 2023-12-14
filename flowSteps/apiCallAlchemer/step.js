@@ -110,37 +110,35 @@ function stringToObject (obj) {
 	return null;
 }
 
+/****************************************************
+ Private API
+ ****************************************************/
 
 function setApiUri(options) {
-	var API_URL = config.get("subdomainLabel");
-	var url = options.path || "";
-	options.url = API_URL + url;
-	sys.logs.debug('[chargify] Set url: ' + options.path + "->" + options.url);
+	var API_URL = config.get("ALCHEMER_API_BASE_URL");
+	var path = options.path || "";
+	options.url = API_URL + path;
+	sys.logs.debug('[alchemer] Set url: ' + options.path + "->" + options.url);
 	return options;
 }
-function setAuthorization(options) {
-	var authorization = options.authorization || {};
-	sys.logs.debug('[chargify] setting authorization');
 
-	authorization = mergeJSON(authorization, {
-		type: "basic",
-		username: config.get("apiKey"),
-		password: "x"
-	});
-	options.authorization = authorization;
-	return options;
-}
 
 function setRequestHeaders(options) {
-	var headers = options.headers || {};
+	let headers = options.headers || {};
 	headers = mergeJSON(headers, {"Content-Type": "application/json"});
 	options.headers = headers;
 	return options;
 }
 
+function setAuthorization(options) {
+	sys.logs.debug('[alchemer] setting authorization');
+	options.url += "?api_token" + config.get("apiToken") + "&api_token_secret" + config.get("apiTokenSecret");
+	return options;
+}
+
 function mergeJSON (json1, json2) {
-	var result = {};
-	var key;
+	const result = {};
+	let key;
 	for (key in json1) {
 		if(json1.hasOwnProperty(key)) result[key] = json1[key];
 	}
