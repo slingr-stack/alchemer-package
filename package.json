@@ -23,8 +23,8 @@
             "required": true
         },
         {
-            "name": "location",
-            "label": "Location",
+            "name": "ALCHEMER_API_BASE_URL",
+            "label": "Alchemer API by Location",
             "type": "buttonsGroup",
             "required": true,
             "defaultValue": "us",
@@ -33,15 +33,15 @@
                 "possibleValues": [
                     {
                         "label": "US",
-                        "name": "us"
+                        "name": "https://api.alchemer.com/v5"
                     },
                     {
                         "label": "CA",
-                        "name": "ca"
+                        "name": "https://api.alchemer-ca.com/v5"
                     },
                     {
                         "label": "EU",
-                        "name": "eu"
+                        "name": "https://api.alchemer.eu/v5"
                     }
                 ]
             }
@@ -51,12 +51,6 @@
             "label": "Webhook URL",
             "type": "label",
             "value": "@config.WEBHOOK_URL"
-        },
-        {
-            "name": "ALCHEMER_API_BASE_URL",
-            "label": "Alchemer Api Url",
-            "type": "label",
-            "value": "https://api.alchemer.com/v4/"
         }
     ],
     "events": [
