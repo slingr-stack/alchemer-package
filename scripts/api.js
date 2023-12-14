@@ -255,7 +255,7 @@ function setApiUri(options) {
     var API_URL = config.get("ALCHEMER_API_BASE_URL");
     var path = options.path || "";
     options.url = API_URL + path;
-    sys.logs.debug('[quickchart] Set url: ' + options.path + "->" + options.url);
+    sys.logs.debug('[alchemer] Set url: ' + options.path + "->" + options.url);
     return options;
 }
 
