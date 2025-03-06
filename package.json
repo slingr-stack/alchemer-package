@@ -1,6 +1,6 @@
 {
     "name": "alchemer",
-    "label": "Alchemer Package",
+    "label": "Alchemer",
     "dependencies": [
         {
             "type": "service",
@@ -67,9 +67,14 @@
             "path": "/scripts/api.js"
         },
         {
-            "type": "flowStep",
-            "namespace": "apiCallAlchemer",
-            "path": "/flowSteps/apiCallAlchemer"
+            "type": "script",
+            "namespace": "utils",
+            "path": "/scripts/utils.js"
+        },
+        {
+            "type": "listener",
+            "namespace": "webhook",
+            "path": "/listeners/webhook.js"
         }
     ]
 }
