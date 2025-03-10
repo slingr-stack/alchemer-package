@@ -69,9 +69,9 @@ Please refer to the webhooks documentation for more information on how to config
 
 # About SLINGR
 
-SLINGR is a low-code rapid application development platform that accelerates development, with robust architecture for integrations and executing custom workflows and automation.
+Slingr is a low-code rapid application development platform that accelerates development, with robust architecture for integrations and executing custom workflows and automation.
 
-[More info about SLINGR](https://slingr.io)
+[More info about Slingr](https://slingr.io)
 
 # License
 
