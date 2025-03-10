@@ -10,19 +10,7 @@ You interact with the resources exposed through the Alchemer API by accessing co
 (GET, POST, PUT, and DELETE). Alchemer accepts and returns data in JSON format.
 
 ## Configuration
-
-### Authentication
-
-To use this package, you will require the following information provided by Alchemer
-
-- [ApiKey](https://apihelp.alchemer.com/help/authentication)
-
-### Alchemer's documentation.
-
-- [Alchemer REST API](https://apihelp.alchemer.com/help)
-
-## Configuration Parameters
-First you will need to set up an account in Alchemer. Then, in order to be able to configure the package you will need to generate an API token. You can find more information about that here.
+First you will need to set up an account in Alchemer. Then, in order to be able to configure the package you will need to generate an [API Token](https://apihelp.alchemer.com/help/authentication). You can find more information about that here.
 
 #### API Token
 The API token generated in Alchemer.
