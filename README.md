@@ -64,8 +64,7 @@ Alchemer's webhooks allow your application to receive push notifications for sur
 Please refer to the webhooks documentation for more information on how to configure them.
 
 ## Dependencies
-* HTTP Service (Latest Version)
-
+* HTTP Service
 
 # About SLINGR
 
