@@ -66,7 +66,7 @@ Please refer to the webhooks documentation for more information on how to config
 ## Dependencies
 * HTTP Service
 
-# About SLINGR
+# About Slingr
 
 Slingr is a low-code rapid application development platform that accelerates development, with robust architecture for integrations and executing custom workflows and automation.
 
