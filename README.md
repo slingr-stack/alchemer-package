@@ -3,14 +3,14 @@
 Repo: [https://github.com/slingr-stack/alchemer-package](https://github.com/slingr-stack/alchemer-package)
 
 ## API Overview
-Alchemer is a web-based software company that provides powerful tools for researchers, small businesses, and enterprises to create online surveys, questionnaires and forms – allowing capture and analysis of virtually any type of data essential for business.
+Alchemer is a web-based software company that provides powerful tools for researchers, small businesses, and enterprises to create online surveys, questionnaires and forms – allowing the capture and analysis of virtually any type of data essential for business.
 
-The Alchemer [package](https://platform-docs.slingr.io/dev-reference/data-model-and-logic/packages/) adheres to Package design principles.
+The Alchemer [package](https://platform-docs.slingr.io/dev-reference/data-model-and-logic/packages/) adheres to package design principles.
 You interact with the resources exposed through the Alchemer API by accessing collection and element URIs using HTTP verbs
 (GET, POST, PUT, and DELETE). Alchemer accepts and returns data in JSON format.
 
 ## Configuration
-First you will need to set up an account in Alchemer. Then, in order to be able to configure the package you will need to generate an [API Token](https://apihelp.alchemer.com/help/authentication). You can find more information about that here.
+First, you will need to set up an account in Alchemer. Then, in order to be able to configure the package, you will need to generate an [API Token](https://apihelp.alchemer.com/help/authentication). You can find more information about that here.
 
 #### API Token
 The API token generated in Alchemer.
@@ -54,7 +54,7 @@ var response = pkg.alchemer.api.post('/survey/:surveyId/surveystatistic/:id')
 var response = pkg.alchemer.api.delete('/domain/:id')
 ```
 
-Please take a look at the documentation of the [HTTP service](https://github.com/slingr-stack/http-service)
+Please take a look at the [HTTP service](https://github.com/slingr-stack/http-service) documentation.
 for more information about generic requests.
 
 ## Events
