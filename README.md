@@ -30,7 +30,7 @@ The API token secret generated in Alchemer.
 The location your account is associated with. You can choose between US, CA or EU.
 
 **Name**: `ALCHEMER_API_BASE_URL`
-**Type**: buttonsGroup
+**Type**: text
 **Mandatory**: true
 
 #### Webhook URL
